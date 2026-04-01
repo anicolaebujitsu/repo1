@@ -32,13 +32,15 @@ jobs:
           git add file1.txt
           git commit -m "Update file1.txt with tag ${{ steps.tagger.outputs.tag }}" || echo "No changes to commit"
 
-      - name: Authenticate with PAT_CORRECT
-        run: |
-          git remote set-url origin https://x-access-token:${{ secrets.PAT_CORRECT }}@github.com/${{ github.repository }}.git
+      # - name: Authenticate with PAT_CORRECT
+      #   run: |
+      #     git remote set-url origin https://x-access-token:${{ secrets.PAT_CORRECT }}@github.com/${{ github.repository }}.git
 
       - name: Push commit
         run: |
           git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Create Git tag
         run: |
