@@ -5,7 +5,7 @@ on:
     types: [trigger-release]
 
 permissions:
-  - contents: write
+  contents: write
 
 jobs:
   release:
