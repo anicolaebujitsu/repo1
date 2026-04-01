@@ -3,6 +3,9 @@ name: Tag from Commit
 on:
   push:
     branches: [ main ]
+    
+permissions:
+  contents: write
 
 jobs:
   create_tag:
